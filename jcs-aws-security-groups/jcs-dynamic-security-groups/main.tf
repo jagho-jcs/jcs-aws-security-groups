@@ -1,9 +1,3 @@
-# provider "aws" {
-#   region                      = "eu-west-2"
-#   shared_credentials_file     = "/../../.aws/credentials"
-#   profile                     = "dev-jcs"
-# }
-
 #############################################################
 # Data sources to get VPC and default security group details
 #############################################################
@@ -20,7 +14,7 @@ data "aws_vpc" "this" {
 }
 
 ###########################
-# Security groups examples
+# Security groups 
 ###########################
 
 #######
@@ -45,6 +39,9 @@ module "http_sg" {
   }
 }
 
+#######
+# HTTP
+#######
 module "hsbc_sg" {
   source = "../../modules/http-80"
 
@@ -64,6 +61,9 @@ module "hsbc_sg" {
   }
 }
 
+#######
+# SSH
+#######
 module "bastion_sg" {
   source = "../../modules/http-80"
 
@@ -83,6 +83,9 @@ module "bastion_sg" {
   }
 }
 
+#######
+# HTTP
+#######
 module "private_sg" {
   source = "../../modules/http-80"
 
